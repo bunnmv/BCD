@@ -1,0 +1,35 @@
+
+create table aluno ( 
+	nome varchar(128), 
+	documento char(11) primary key, 
+	telefone bigint(20),
+	email varchar(128))
+);
+
+
+
+create table matricula (
+  aluno char (11),
+  curso smallint unsigned primary key,
+  numero char (10) primary key,
+  constraint fk_matricula_aluno_aluno_documento foreign key (aluno) references aluno(documento),
+  constraint fk_matricula_curso_curso_codigo foreign key (curso) references curso(numero)
+
+);
+
+
+create table curso(
+  numero smallint unsigned,
+  CHmin  smallint unsigned,
+  CHmax  smallint unsigned,
+  nome   varchar(128),
+  campus char(50),
+  curriculo ??
+  constraint fk_matricula_aluno_aluno_documento foreign key (campus) references Campus(nome),
+  constraint fk_matricula_aluno_aluno_documento foreign key (curriculo) references Curriculo(implantacao,disciplina),
+
+);
+
+create table Campus (
+  nome   varchar(128) primary key,
+);
